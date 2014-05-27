@@ -121,7 +121,7 @@ public class GetAllDrinks extends HttpServlet {
         while (rs.next()) {
             int id = rs.getInt(1);
             List<String> ingr = new ArrayList<String>(); // ingredients list for drinkInfo
-            String isql = "SELECT ingredient FROM INGREDIENT WHERE drinkid = " + id;
+            String isql = "SELECT ingredientWithPortions FROM INGREDIENT WHERE drinkid = " + id;
             Statement istmt = conn.createStatement();
             ResultSet irs = istmt.executeQuery(isql);
             while (irs.next()) {

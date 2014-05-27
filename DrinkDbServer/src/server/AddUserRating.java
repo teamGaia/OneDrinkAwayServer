@@ -58,6 +58,7 @@ public class AddUserRating extends HttpServlet {
             String addSQL = "INSERT INTO RATING VALUES (" + drinkid + ", " + 
                             rating + ", '" + userid + "')";
             stmt.executeUpdate(addSQL);
+            conn.close();
             return true;
         } catch (Exception e) {
             e.printStackTrace();

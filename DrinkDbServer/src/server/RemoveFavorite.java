@@ -54,6 +54,7 @@ public class RemoveFavorite extends HttpServlet {
             String remSQL = "DELETE FROM FAVORITE WHERE drinkid = " + drinkid +
                     " AND userid = '" + userid + "'";
             stmt.executeUpdate(remSQL);
+            conn.close();
             return true;
         } catch (Exception e) {
             e.printStackTrace();

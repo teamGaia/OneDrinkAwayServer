@@ -55,6 +55,7 @@ public class AddFavorite extends HttpServlet {
             String addSQL = "INSERT INTO FAVORITE VALUES (" + drinkid + ", '" +
                             userid + "')";
             stmt.executeUpdate(addSQL);
+            conn.close();
             return true;
         } catch (Exception e) {
             e.printStackTrace();

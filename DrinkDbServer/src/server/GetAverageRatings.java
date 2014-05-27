@@ -63,6 +63,7 @@ public class GetAverageRatings extends HttpServlet {
                 sb.append(":");
                 sb.append(rs.getString(2));
             }
+            conn.close();
         } catch (Exception e) {
             e.printStackTrace();
         }

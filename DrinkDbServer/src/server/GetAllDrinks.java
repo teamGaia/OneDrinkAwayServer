@@ -86,6 +86,7 @@ public class GetAllDrinks extends HttpServlet {
                 DrinkInfo di = new DrinkInfo(ings, description, garnish, instructions, source, id);
                 drinks.put(gson.toJson(d), gson.toJson(di));
             }
+            conn.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -104,6 +105,7 @@ public class GetAllDrinks extends HttpServlet {
         while (rs.next()) {
             avgRatings.put(rs.getInt(1), rs.getDouble(2));
         }
+        conn.close();
         return avgRatings;
     }
     

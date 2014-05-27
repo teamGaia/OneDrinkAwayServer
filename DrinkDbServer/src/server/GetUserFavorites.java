@@ -62,6 +62,7 @@ public class GetUserFavorites extends HttpServlet {
                 sb.append(",");
                 sb.append(rs.getString(1));
             }
+            conn.close();
         } catch (Exception e) {
             e.printStackTrace();
         }

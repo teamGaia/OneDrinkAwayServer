@@ -72,18 +72,17 @@ public class GetAllDrinks extends HttpServlet {
                 String name = drinkRS.getString(2);
                 String glass = drinkRS.getString(3);
                 String garnish = drinkRS.getString(4);
-                String description = drinkRS.getString(5);
-                String instructions = drinkRS.getString(6);
-                String source = drinkRS.getString(7);
+                String instructions = drinkRS.getString(5);
+                String image = drinkRS.getString(6);
                 int[] att = new int[11];
                 for (int i = 0; i < 11; i++) {
-                    att[i] = drinkRS.getInt(i + 8);
+                    att[i] = drinkRS.getInt(i + 7);
                 }
                 double avg = avgRatings.get(id);
                 List<String> cats = drinkCategories.get(id);
                 List<String> ings = drinkIngredients.get(id);
-                Drink d = new Drink(name, id, avg, att, cats, glass);
-                DrinkInfo di = new DrinkInfo(ings, description, garnish, instructions, source, id);
+                Drink d = new Drink(name, id, avg, att, cats, glass, image);
+                DrinkInfo di = new DrinkInfo(ings, garnish, instructions, id);
                 drinks.put(gson.toJson(d), gson.toJson(di));
             }
             conn.close();
